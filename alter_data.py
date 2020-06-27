@@ -18,7 +18,7 @@ be the same on yours unless you go out of your way to make it the same. For inst
 NFLX.csv file, you would simply need to know where it is located. Maybe it's in a folder titled "Stocks", in which case
 your path would be "Stocks/NFLX.csv'. 
 '''
-df = pd.read_csv('../sentdex_python_finance/stock_dfs/NFLX.csv',parse_dates=True, index_col=0)
+df = pd.read_csv('TSLA.csv',parse_dates=True, index_col=0)
 # You can read from many different file formats such as: json, SQL, excel, etc.)
 
 df['100ma'] = df['Adj Close'].rolling(window=100).mean()
