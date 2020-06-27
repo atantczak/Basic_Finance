@@ -1,6 +1,6 @@
 # This is the THIRD 'Python Programming for Finance' episode from sentdex. 
 
-# The purpose is simply to pull financial data from the web.
+# The purpose is alter local data to view certain aspects of it.
 
 import datetime as dt
 import matplotlib.pyplot as plt
