@@ -34,7 +34,7 @@ def visualize_data():
     df_corr = df.corr()
     print(df_corr.head())
 
-    # We know want to visualize correlations.
+    # We now want to visualize correlations.
     data = df_corr.values
     fig = plt.figure()
     ax = fig.add_subplot(1,1,1)
