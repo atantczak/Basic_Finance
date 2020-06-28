@@ -1,6 +1,7 @@
 # This is the FOURTH 'Python Programming for Finance' episode from sentdex. 
 
-# This is a program graphing stock data, of your choosing, using the popular candlestick graphing method.
+# This is a program graphing stock data, of your choosing, using the popular candlestick graphing method. 
+# I'm covering two different methods here so please note the divide separating the two. 
 
 import datetime as dt
 import matplotlib.pyplot as plt
@@ -16,7 +17,7 @@ import matplotlib.dates as mdates
 style.use('ggplot')
 # This is simply a style choice. Feel free to look into others once you get going. 
 
-df = pd.read_csv('../sentdex_python_finance/stock_dfs/GE.csv',parse_dates=True, index_col=0)
+df = pd.read_csv('TSLA.csv',parse_dates=True, index_col=0)
 # You can read from many different file formats such as: json, SQL, excel, etc.)
 
 # You can resample the data to different increments. For instance, stock data is produced daily and you will
@@ -42,3 +43,23 @@ ax2.fill_between(df_volume.index.map(mdates.date2num), df_volume.values, 0)
 
 plt.show()
 
+###################################################################### METHOD 2 ######################################################################
+import plotly.graph_objects as go
+
+ticker = 'TSLA'
+df = pd.read_csv('{}.csv'.format(ticker),parse_dates=True, index_col=0)
+
+df.index = pd.to_datetime(df.index)
+
+fig = go.Figure(data=[go.Candlestick(x=df.index,
+                                     open=df['Open'],
+                                     high=df['High'],
+                                     low=df['Low'],
+                                     close=df['Adj Close'],
+                                     increasing_line_color='darkcyan',
+                                     decreasing_line_color='darkgray')])
+fig.update_layout(title="{} Stock".format(str(ticker)),
+                  xaxis_title="Date",
+                  yaxis_title="{} Stock Price".format(str(ticker)))
+
+fig.show()
