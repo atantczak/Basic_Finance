@@ -28,7 +28,7 @@ yf.pdr_override
 
 
 def visualize_data():
-    df = pd.read_csv('../Original_Codes/sp500_joined_closes.csv')
+    df = pd.read_csv('sp500_joined_closes.csv')
     #df['AAPL'].plot()
     #plt.show()
     df_corr = df.corr()
